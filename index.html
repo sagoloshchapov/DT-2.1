@@ -1775,7 +1775,14 @@
                     };
                     
                     const result = await this.supabaseRequest('users', 'POST', newUser);
-                    
+                     return { 
+        success: true, 
+        message: 'Регистрация успешна! Теперь войдите в систему.',
+        username: username
+    };
+} else {
+    return { success: false, message: 'Ошибка регистрации' };
+}
                     if (result && result[0]) {
 let userStats = {
     currentLevel: 1,
